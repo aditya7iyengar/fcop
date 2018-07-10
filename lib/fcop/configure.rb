@@ -1,4 +1,9 @@
 module Fcop
+  # Usage:
+  # Fcop.configure do |config|
+  #   config.add_replacement("fuck", "fun")
+  #   config.add_files("*.rb")
+  # end
   class << self
     attr_accessor :config
   end
@@ -13,7 +18,7 @@ module Fcop
 
     def initialize
       self.replacements = Fcop::Replacement.default
-      self.files = []
+      self.files = ["."]
     end
 
     def add_replacement(word, replacement = "")
